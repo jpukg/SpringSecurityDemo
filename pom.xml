@@ -279,11 +279,24 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-        <dependency>
+       <!--  <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>1.8.0.10</version>
-        </dependency>		
+        </dependency> -->
+	<dependency>
+		<groupId>org.hsqldb</groupId>
+		<artifactId>hsqldb</artifactId>
+		<version>2.2.9</version>
+		<classifier>jdk5</classifier>
+	</dependency>
+
+	<dependency>
+		<groupId>com.vaadin</groupId>
+		<artifactId>vaadin</artifactId>
+		<version>${vaadin.version}</version>
+	</dependency>
+        	
 	</dependencies>
 	<repositories>
 		<repository>
@@ -297,5 +310,6 @@
 	</repositories>
 	<properties>
 		<spring.version>3.0.2.RELEASE</spring.version>
+		<vaadin.version>6.8.2</vaadin.version>
 	</properties>
 </project>
