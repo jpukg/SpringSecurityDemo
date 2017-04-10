@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.peholmst</groupId>
-	<artifactId>springsecuritydemo</artifactId>
+	<artifactId>springsecuritydemo_jp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Spring Security Demo</name>
@@ -131,10 +131,11 @@
 						<phase>compile</phase>
 						<configuration>
 							<tasks>
-								<propertyfile file="${project.build.outputDirectory}/version.properties">
-									<entry key="app.version" value="${project.version}"/>
-									<entry key="app.build" type="date" value="now"/>
-								</propertyfile> 
+								<propertyfile
+									file="${project.build.outputDirectory}/version.properties">
+									<entry key="app.version" value="${project.version}" />
+									<entry key="app.build" type="date" value="now" />
+								</propertyfile>
 							</tasks>
 						</configuration>
 						<goals>
@@ -156,7 +157,7 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin</artifactId>
-			<version>6.3.0</version>
+			<version>7.0.0.alpha3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -168,11 +169,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.5.0-Final</version>
 		</dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.9.RC1</version>
-        </dependency>		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.9.RC1</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -279,24 +280,21 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-       <!--  <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>1.8.0.10</version>
-        </dependency> -->
-	<dependency>
-		<groupId>org.hsqldb</groupId>
-		<artifactId>hsqldb</artifactId>
-		<version>2.2.9</version>
-		<classifier>jdk5</classifier>
-	</dependency>
+		<!-- <dependency> <groupId>org.hsqldb</groupId> <artifactId>hsqldb</artifactId> 
+			<version>1.8.0.10</version> </dependency> -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.9</version>
+			<classifier>jdk5</classifier>
+		</dependency>
 
-	<dependency>
-		<groupId>com.vaadin</groupId>
-		<artifactId>vaadin</artifactId>
-		<version>${vaadin.version}</version>
-	</dependency>
-        	
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency>
+
 	</dependencies>
 	<repositories>
 		<repository>

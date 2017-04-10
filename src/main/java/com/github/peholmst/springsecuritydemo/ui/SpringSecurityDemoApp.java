@@ -131,6 +131,7 @@ public class SpringSecurityDemoApp extends Application implements I18nProvider,
     private final Button search = new Button("Search");
     private final Button share = new Button("Share");
     private final Button help = new Button("Help");
+    private final Button Logout = new Button("Logout");
     private final HorizontalSplitPanel horizontalSplit = new HorizontalSplitPanel();
 
     // Lazily created UI references
@@ -170,7 +171,7 @@ public class SpringSecurityDemoApp extends Application implements I18nProvider,
 		loginView = new LoginView(this, authenticationManager);
 		loginView.setSizeFull();
 
-		setTheme("SpringSecurityDemo"); // We use a custom theme
+		setTheme("contacts"); // We use a custom theme
 
 		final Window loginWindow = new Window(getMessage("app.title",
 			getVersion()), loginView);
@@ -321,6 +322,24 @@ public class SpringSecurityDemoApp extends Application implements I18nProvider,
         horizontalSplit
                 .setSplitPosition(200, HorizontalSplitPanel.UNITS_PIXELS);
         horizontalSplit.setFirstComponent(tree);
+        
+        /*
+		 * The logout button closes the application, effectively logging the
+		 * user out.
+		 */
+		final Button logoutButton = new Button((
+				"main.logout.caption"), new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				// TODO Add confirmation
+			}
+		});
+		logoutButton.setDescription (
+				"main.logout.descr");
+		logoutButton.setStyleName("small");
+		layout.addComponent(logoutButton);
+		layout.setComponentAlignment(logoutButton, Alignment.MIDDLE_RIGHT);
 
         getMainWindow().setContent(layout);
     }
@@ -331,15 +350,18 @@ public class SpringSecurityDemoApp extends Application implements I18nProvider,
         lo.addComponent(search);
         lo.addComponent(share);
         lo.addComponent(help);
+        lo.addComponent(Logout);
 
         search.addListener((ClickListener) this);
         share.addListener((ClickListener) this);
         help.addListener((ClickListener) this);
+        Logout.addListener((ClickListener) this);
         newContact.addListener((ClickListener) this);
 
         search.setIcon(new ThemeResource("icons/32/folder-add.png"));
         share.setIcon(new ThemeResource("icons/32/users.png"));
         help.setIcon(new ThemeResource("icons/32/help.png"));
+        Logout.setIcon(new ThemeResource("icons/32/help1.png"));
         newContact.setIcon(new ThemeResource("icons/32/document-add.png"));
 
         lo.setMargin(true);
